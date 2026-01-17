@@ -2,6 +2,12 @@ import { FlashcardCarousel } from '@/components/flashcard-carousel';
 import { LESSONS } from '@/lib/data';
 import { notFound } from 'next/navigation';
 
+export async function generateStaticParams() {
+  return LESSONS.map((lesson) => ({
+    lessonId: lesson.id,
+  }));
+}
+
 export default function LessonDetailPage({ params }: { params: { lessonId: string } }) {
   const lesson = LESSONS.find((l) => l.id === params.lessonId);
 
