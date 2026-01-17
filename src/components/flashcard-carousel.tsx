@@ -13,7 +13,6 @@ import {
 } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { PronunciationTool } from './pronunciation-tool';
 
 function Flashcard({ word }: { word: Word }) {
   const [isFlipped, setIsFlipped] = React.useState(false);
@@ -67,10 +66,7 @@ export function FlashcardCarousel({ words }: { words: Word[] }) {
         {words.map((word, index) => (
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
             <div className="p-1 aspect-square h-[450px]">
-              <div className="flex flex-col h-full gap-4">
-                <Flashcard word={word} />
-                <PronunciationTool word={word} />
-              </div>
+              <Flashcard word={word} />
             </div>
           </CarouselItem>
         ))}
